@@ -53,6 +53,24 @@ This will install both packages and all their dependencies.
 </p>
 
 **Figure:** Warm‑up airplanes dataset: three classes (yaw, pitch, roll) that are indistinguishable from a single frame. Without GRW‑smoothing, frame embeddings are scattered; with GRW‑smoothing, they form smooth, low‑acceleration trajectories that align with the underlying rotation type.
+  
+---
+
+## How GRW-smoothing is integrated
+
+At a high level, GRW-smoothing can be applied in two ways:
+
+1. **Intermediate-layer smoothing**  
+   - Globally pool intermediate feature maps over space.  
+   - Normalize them (e.g., using batch norm without learned affine parameters).  
+   - Slice the temporal sequence into short clips and apply the GRW loss to these sub‑sequences.
+
+2. **Final-layer smoothing**  
+   - Affinely normalize the final per‑frame embeddings.  
+   - Apply GRW regularization over short temporal windows.  
+   - Optionally feed the smoothed sequence into a lightweight temporal head (e.g., 1–2 layer Transformer) before the classifier.
+
+In both cases, GRW acts purely on embeddings and introduces only a small overhead relative to the backbone, making it easy to drop into existing architectures.
 
 ---
 
@@ -164,24 +182,6 @@ torchrun --standalone --nproc_per_node [num_gpus] cli.py kinetics-test \
 ```
 
 The checkpoint is downloaded into the `models_home` directory from `config.ini`.
-
----
-
-## How GRW-smoothing is integrated
-
-At a high level, GRW-smoothing can be applied in two ways:
-
-1. **Intermediate-layer smoothing**  
-   - Globally pool intermediate feature maps over space.  
-   - Normalize them (e.g., using batch norm without learned affine parameters).  
-   - Slice the temporal sequence into short clips and apply the GRW loss to these sub‑sequences.
-
-2. **Final-layer smoothing**  
-   - Affinely normalize the final per‑frame embeddings.  
-   - Apply GRW regularization over short temporal windows.  
-   - Optionally feed the smoothed sequence into a lightweight temporal head (e.g., 1–2 layer Transformer) before the classifier.
-
-In both cases, GRW acts purely on embeddings and introduces only a small overhead relative to the backbone, making it easy to drop into existing architectures.
 
 ---
 
