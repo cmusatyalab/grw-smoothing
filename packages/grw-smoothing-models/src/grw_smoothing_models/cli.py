@@ -15,8 +15,8 @@ def cli():
 
 @click.command()
 def kinetics_arrange():
-    from config.grw_smoothing_models_config import GrwSmoothingModelsConfig
     from grw_smoothing_models.data.arrange import KineticsDataSet
+    from grw_smoothing_models.config.grw_smoothing_models_config import GrwSmoothingModelsConfig
     config = GrwSmoothingModelsConfig('../../config.ini').config
     data_home = config.get('kinetics', 'data_home')
     kinetics_data_set = KineticsDataSet(data_home)
@@ -26,8 +26,8 @@ def kinetics_arrange():
 @click.command()
 @click.option('--num_workers', default=12, type=int, help='num_workers')
 def kinetics_create_clips(num_workers: int):
-    from config.grw_smoothing_models_config import GrwSmoothingModelsConfig
-    from data.kinetics_ds import KineticsDs
+    from grw_smoothing_models.config.grw_smoothing_models_config import GrwSmoothingModelsConfig
+    from grw_smoothing_models.data.kinetics_ds import KineticsDs
     config = GrwSmoothingModelsConfig('../../config.ini').config
     data_home = config.get('kinetics', 'data_home')
 
