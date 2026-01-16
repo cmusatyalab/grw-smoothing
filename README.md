@@ -117,6 +117,14 @@ https://huggingface.co/DrGil/grw-smoothing-movinet/tree/main
 
 ---
 
+## Configure paths
+
+Before running inference, create `packages/grw-smoothing-models/config.ini` by copying `packages/grw-smoothing-models/config.ini.template`, then set:
+- `models_home` to the directory where checkpoints should be stored.
+- `data_home` to the root of your Kinetics‑600 dataset.
+
+---
+
 ## Inference examples
 
 To run evaluation on Kinetics-600 using the published weights on Hugging Face, run these commands from `packages/grw-smoothing-models/src/grw_smoothing_models`:
