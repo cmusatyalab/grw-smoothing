@@ -1,0 +1,9 @@
+# Change this file name to config.ini and set your data_home and models_home directories
+
+[global]
+# Directory where model checkpoints are stored.
+models_home: /path/to/grw-smoothing-models/models/
+
+[kinetics]
+# Root directory of the Kinetics-600 dataset.
+data_home: /path/to/kinetics-dataset/k600/
