@@ -119,7 +119,7 @@ https://huggingface.co/DrGil/grw-smoothing-movinet/tree/main
 
 ## Inference examples
 
-To run evaluation on Kinetics-600 using the published weights on Hugging Face:
+To run evaluation on Kinetics-600 using the published weights on Hugging Face, run these commands from `packages/grw-smoothing-models/src/grw_smoothing_models`:
 
 ```bash
 # A0S
