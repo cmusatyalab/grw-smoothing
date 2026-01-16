@@ -110,9 +110,52 @@ Top‑1 accuracy vs. total video evaluation cost (GFLOPs) on Kinetics‑600. Mod
 
 ---
 
+## Trained weights
+
+Trained weights for the GRW‑smoothing MoViNet models used in the paper (A0S, A1S, A2S, A3B) are hosted on Hugging Face:
+https://huggingface.co/DrGil/grw-smoothing-movinet/tree/main
+
+---
+
 ## Inference examples
 
-<!-- TODO: add usage and inference examples -->
+To run evaluation on Kinetics-600 using the published weights on Hugging Face:
+
+```bash
+# A0S
+torchrun --standalone --nproc_per_node [num_gpus] cli.py kinetics-test \
+  --model_name a0s_grw.pt \
+  --batch_size 20 \
+  --fps 5 \
+  --N 50 \
+  --backbone movineta0s
+
+# A1S
+torchrun --standalone --nproc_per_node [num_gpus] cli.py kinetics-test \
+  --model_name a1s_grw.pt \
+  --batch_size 20 \
+  --fps 5 \
+  --N 50 \
+  --backbone movineta1s
+
+# A2S
+torchrun --standalone --nproc_per_node [num_gpus] cli.py kinetics-test \
+  --model_name a2s_grw.pt \
+  --batch_size 20 \
+  --fps 5 \
+  --N 50 \
+  --backbone movineta2s
+
+# A3B
+torchrun --standalone --nproc_per_node [num_gpus] cli.py kinetics-test \
+  --model_name a3b_grw.pt \
+  --batch_size 20 \
+  --fps 12 \
+  --N 120 \
+  --backbone movineta3b
+```
+
+The checkpoint is downloaded into the `models_home` directory from `config.ini`.
 
 ---
 
