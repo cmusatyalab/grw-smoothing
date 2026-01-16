@@ -190,9 +190,10 @@ The checkpoint is downloaded into the `models_home` directory from `config.ini`.
 If you use this code or ideas from the paper, please cite:
 
 ```bibtex
-@article{goldman2025grwsmoothing,
-  title   = {Smooth Regularization for Efficient Video Recognition},
-  author  = {Gil Goldman and Raja Giryes and Mahadev Satyanarayanan},
-  journal = {arXiv preprint arXiv:2511.20928},
-  year    = {2025}
+@inproceedings{goldman2025grwsmoothing,
+  title     = {Smooth Regularization for Efficient Video Recognition},
+  author    = {Gil Goldman and Raja Giryes and Mahadev Satyanarayanan},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2511.20928}
 }
