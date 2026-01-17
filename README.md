@@ -168,6 +168,8 @@ https://huggingface.co/datasets/DrGil/k600_test_ds
 
 ## Inference examples
 
+Before running the inference commands, download the checkpoints into `models_home` (as configured in `packages/grw-smoothing-models/config.ini`).
+
 To run evaluation on Kinetics-600 using the published weights on Hugging Face, run these commands from `packages/grw-smoothing-models/src/grw_smoothing_models`:
 
 ```bash
