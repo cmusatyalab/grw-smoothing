@@ -143,6 +143,29 @@ Before running inference, create `packages/grw-smoothing-models/config.ini` by c
 
 ---
 
+## Data preparation (Kinetics‑600 test set)
+
+The paper reports results on the Kinetics‑600 test dataset. We used all videos available on YouTube at the time of the experiments. The precise set of clips is provided here:
+https://huggingface.co/datasets/DrGil/k600_test_ds
+
+1. **Download the dataset tarball** to your `data_home` directory (as configured in `packages/grw-smoothing-models/config.ini`).
+2. **Extract the archive**:
+   ```bash
+   tar -xvf k600_test_ds.tar.gz
+   ```
+   Your `data_home` directory should now include a single `test` folder containing the test video clips, organized by class name.
+3. **Create the cache directory**:
+   ```bash
+   mkdir -p video_clips_cache
+   ```
+4. **Build video clip metadata** (this can take a while). From `packages/grw-smoothing-models/src/grw_smoothing_models`, run:
+   ```bash
+   python cli.py kinetics-create-clips
+   ```
+5. **Validate the cache**: confirm `video_clips_cache/test.pkl` was created.
+
+---
+
 ## Inference examples
 
 To run evaluation on Kinetics-600 using the published weights on Hugging Face, run these commands from `packages/grw-smoothing-models/src/grw_smoothing_models`:
