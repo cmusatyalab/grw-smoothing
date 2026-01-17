@@ -145,7 +145,7 @@ Before running inference, create `packages/grw-smoothing-models/config.ini` by c
 
 ## Data preparation (Kinetics‑600 test set)
 
-The paper reports results on the Kinetics‑600 public (labeled) test split. Because Kinetics videos are hosted on YouTube and availability changes over time, we evaluated on the subset of test videos that were still accessible at the time of our experiments. To enable exact reproducibility, we provide here the frozen set of extracted clips used in the paper:
+The paper reports results on the Kinetics‑600 public (labeled) test split. Because Kinetics videos are hosted on YouTube and availability changes over time, we evaluated on the subset of videos from the official test split that were still accessible at the time of our experiments. To enable exact reproducibility, we provide here the frozen set of extracted clips used in the paper:
 https://huggingface.co/datasets/DrGil/k600_test_ds
 
 1. **Download the dataset tarball** to your `data_home` directory (as configured in `packages/grw-smoothing-models/config.ini`).
