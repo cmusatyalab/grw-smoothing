@@ -154,9 +154,9 @@ https://huggingface.co/datasets/DrGil/k600_test_ds
    tar -xvf k600_test_ds.tar.gz
    ```
    Your `data_home` directory should now include a single `test` folder containing the test video clips, organized by class name.
-3. **Create the cache directory**:
+3. **Under `data_home`, create the directory `video_clips_cache`**:
    ```bash
-   mkdir -p video_clips_cache
+   mkdir video_clips_cache
    ```
 4. **Build video clip metadata** (this can take a while). From `packages/grw-smoothing-models/src/grw_smoothing_models`, run:
    ```bash
